@@ -4,7 +4,7 @@
 
 body {
 	font-family: sans-serif;
-	background: gray;
+	background: rgb(201, 216, 218);
 	margin: 0;
 	padding: 0;
 }
@@ -15,6 +15,18 @@ header {
 	background: green;
 	padding: 2rem 0 10rem;
 	text-align: center;
+}
+
+.sr-only{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+	border-width: 0px;
 }
 
 h2 {
@@ -43,6 +55,22 @@ h2 {
 	margin: auto;
 }
 
+/*Links e botoes*/
+
+a{
+	color: chocolate;
+	text-decoration: none;
+}
+
+a:hover{
+	opacity: 0.6;
+
+}
+
+.button.new{
+	margin-bottom: 10rem;
+}
+
 /* Cards */
 
 .card {
@@ -64,11 +92,17 @@ h2 {
 }
 
 .card.green {
-	background: green;
+	background: rgb(66, 162, 66);
 	color: white;
 }
 
 /* data-table */
+
+#transaction{
+	width: 100%;
+	display: block;
+	overflow-x: auto;
+}
 
 #data_table {
 	width: 100%;
@@ -78,6 +112,103 @@ h2 {
 table thead tr:first-child,
 table tbody td:first-child {
 	border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr:last-child,
+table tbody td:last-child {
+	border-radius: 0rem 0.25 0.25 0rem;
+}
+
+
+/*MODAL*/
+
+.modal-overlay{
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0,0,0,0.7);
+
+	position: fixed;
+	top: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	opacity: 0;
+	visibility: hidden;
+}
+
+.modal-overlay.active{
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal {
+	background: #F0F2f5;
+	padding: 2.4rem;
+}
+
+/*FORMS*/
+
+#form {
+	max-width: 500px;
+
+}
+
+#form h2{
+	margin-top: 0px;
+
+}
+
+input{
+	border: none;
+	border-radius: 0.2rem;
+	padding: 0.8rem;
+	width: 100%;
+}
+
+.input-group{
+	margin-top: 0.8rem;
+}
+
+.input-group small{
+		opacity: 0.4;
+}
+
+.input-group.actions{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.input-group.actions .button,
+.input-group.actions button{
+	width: 48%;
+}
+
+button{
+	width: 100%;
+	height: 50px;
+
+	border: none;
+	color: white;
+	background: green;
+
+	padding: 0;
+	cursor: pointer;
+}
+
+.button.cancel{
+	color: red;
+	border: red solid 2px;
+
+	height: 50px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 }
 
 table td {
@@ -111,4 +242,18 @@ footer {
 	font-weight: 100;
 	padding: 4rem 0 2rem;
 	opacity: 0.3;
+}
+
+/*Responsividade*/
+
+@media (min-width: 800px){
+	html{
+		font-size: 87.5%;
+	}
+
+	#balance{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 50px
+	}
 }

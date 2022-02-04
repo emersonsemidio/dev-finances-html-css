@@ -14,7 +14,7 @@
 		</header>
 		<main class="container">
 			<section id="balance">
-				<h2>Balanço</h2>
+				<h2 class="sr-only">Balanço</h2>
 
 				<div class="card">
 					<h3>Entradas</h3>
@@ -33,7 +33,12 @@
 			</section>
 
 			<section id="transaction">
-				<h2>Transações</h2>
+				<h2 class="sr-only">Transações</h2>
+
+				<a 
+				onclick="Modal.open()"
+				href="#" class="button new"> + Nova transação</a>
+				
 
 				<table id="data_table">
 					<thead>
@@ -43,31 +48,76 @@
 							<th>Data</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>Luz</td>
-							<td>- R$500,00</td>
-							<td>23/05/2021</td>
-						</tr>
-
-						<tr>
-							<td>Internet</td>
-							<td>- R$200,00</td>
-							<td>23/05/2021</td>
-						</tr>
-
-						<tr>
-							<td>Novas Mobilias</td>
-							<td>- R$150,00</td>
-							<td>23/05/2021</td>
-						</tr>
-					</tbody>
 				</table>
 			</section>
 		</main>
 
+		<div class="modal-overlay">
+				<div class="modal">
+					<div id="form">
+						<h2>Nova Transação</h2>
+						<form action="">
+
+
+							<div class="input-group">
+								<label
+									class="sr-only" 
+									for="description">Descrição</label>
+								<input
+								 type="text"
+								 id="description"
+								 name="description"
+								 placeholder="Descrição"
+								 />
+							</div>
+
+							<div class="input-group">
+								<label
+									class="sr-only" 
+									for="amount">Valor</label>
+								<input
+								 type="text"
+								 id="amount"
+								 name="amount"
+								 placeholder="R$0,00"
+								 />
+
+								 <small class="help">
+									 Use o sinal - (negativo) para despesas e , (virgula) para casas decimais
+								 </small>
+							</div>
+
+							<div class="input-group">
+								<label
+									class="sr-only" 
+									for="date">Data</label>
+								<input
+								 type="date"
+								 id="date"
+								 name="date"
+								 />
+							</div>
+
+							<div class="input-group actions">
+								<a 
+								onclick="Modal.close()"
+								href="#" class="button cancel">Cancelar</a>
+								<button>Salvar</button>
+							</div>
+
+						</form>
+					</div>
+
+					
+				</div>
+		</div>
+
 		<footer>
 			<p>dev.finances</p>
 		</footer>
+
+		<script src="scrips.js">
+			
+		</script>
 	</body>
 </html>
