@@ -31,21 +31,44 @@ const transactions = [
   description: 'Novas Mobilias',
   amount: -15000,
   date: '23/05/2021'
-}
+},
+{
+  id: 4,
+  description: 'Yo Salario',
+  amount: 150000,
+  date: '20/05/2021'
+},
 ]
 
 const Transaction = {
   incomes(){
-    //Somar todas as entradas
+    let income = 0
+
+    transactions.forEach(transaction => {
+      if(transaction.amount > 0){
+        income += transaction.amount
+      }
+    })
+
+    return income
   },
   expenses(){
-    //Somar todas as saidas
-  },
-  total(){
-    //entradas menos saidas
-  }
+    let expense = 0
 
+    transactions.forEach(transaction => {
+      if(transaction.amount < 0){
+        expense += transaction.amount
+      }
+    })
+
+    return expense;
+  },
+
+  total() {
+    return Transaction.incomes() + Transaction.expenses()
+  }
 }
+
 
 
 
@@ -73,6 +96,17 @@ const DOM = {
 
     `  
     return html
+  },
+
+  updateBalance(){
+    document.getElementById('incomeDisplay')
+    .innerHTML = Transaction.incomes()
+
+    document.getElementById('expenseDisplay')
+    .innerHTML = Transaction.expenses()
+
+    document.getElementById('totalDisplay')
+    .innerHTML = Transaction.total()
   }
 }
 
@@ -80,7 +114,7 @@ const DOM = {
 
 const Utils = {
   formatCurrency(value){
-    const signal = Number(value) < 0 ? `-`: ``;
+    const signal = Number(value) < 0 ? "-": "";
 
 
     value = String(value).replace(/\D/, '')
@@ -88,13 +122,12 @@ const Utils = {
     value = Number(value)/100;
 
 
-    value = value.toLocaleString(`pt-BR` ,{
+    value = value.toLocaleString(`pt-BR`, {
       style: `currency`,
       currency: `BRL`
     });
 
     return `${signal} ${value}`;
-
 
 
   }
@@ -103,3 +136,5 @@ const Utils = {
 transactions.forEach(function(transaction){
   DOM.addTransaction(transaction)
 })
+
+DOM.updateBalance()
