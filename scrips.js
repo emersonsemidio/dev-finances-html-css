@@ -14,36 +14,37 @@ let Modal = {
 }
 
 const transactions = [
-  {
+//   {
 
-  description: 'Luz',
-  amount: -50000,
-  date: '23/05/2021'
-},
-{
+//   description: 'Luz',
+//   amount: -50000,
+//   date: '23/05/2021'
+// },
+// {
 
-  description: 'Internet',
-  amount: -20000,
-  date: '23/05/2021'
-},
-{
+//   description: 'Internet',
+//   amount: -20000,
+//   date: '23/05/2021'
+// },
+// {
 
-  description: 'Novas Mobilias',
-  amount: -15000,
-  date: '23/05/2021'
-},
-{
+//   description: 'Novas Mobilias',
+//   amount: -15000,
+//   date: '23/05/2021'
+// },
+// {
 
-  description: 'Yo Salario',
-  amount: 150000,
-  date: '20/05/2021'
-},
+//   description: 'Yo Salario',
+//   amount: 150000,
+//   date: '20/05/2021'
+// },
 ]
 
 const Transaction = {
   all: transactions,
 
   add(value){
+    console.log('Transaction.add');
     Transaction.all.push(value)
   },
 
@@ -210,6 +211,7 @@ const Form = {
     try {
       Form.validateFields()
       const transaction = Form.formatValues()
+      console.log(transaction);
       Transaction.add(transaction)
       DOM.addTransaction(transaction, null);
       DOM.updateBalance()
