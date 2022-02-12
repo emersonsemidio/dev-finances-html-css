@@ -1,7 +1,6 @@
 let Modal = {
   open() {
     document.querySelector(".modal-overlay").classList.add("active");
-    console.log("open");
   },
 
   close() {
@@ -36,7 +35,6 @@ const Transaction = {
   all: transactions,
 
   add(value) {
-    console.log("Transaction.add");
     Transaction.all.push(value);
   },
 
@@ -117,7 +115,6 @@ const Utils = {
   },
 
   formatDate(date) {
-    console.log(date);
     const splittedDate = date.split("-");
     return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
   },
@@ -126,10 +123,8 @@ const Utils = {
     const signal = Number(value) < 0 ? "-" : "";
 
     value = String(value).replace(/\D/, "").replace(",", ".");
-    console.log(value);
 
     value = Number(value) / 100;
-    console.log(value);
 
     value = value.toLocaleString(`pt-BR`, {
       style: `currency`,
@@ -156,7 +151,6 @@ const Form = {
   formatData() { },
 
   validateFields() {
-    console.log(Form.getValues());
     const { description, amount, date } = Form.getValues();
 
     if (
@@ -194,7 +188,6 @@ const Form = {
     try {
       Form.validateFields();
       const transaction = Form.formatValues();
-      console.log(transaction);
       Transaction.add(transaction);
       DOM.addTransaction(transaction, null);
       DOM.updateBalance();
