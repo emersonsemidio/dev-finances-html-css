@@ -137,6 +137,7 @@ table tbody td:last-child {
 
 	opacity: 0;
 	visibility: hidden;
+	z-index: 1000;
 }
 
 .modal-overlay.active{
@@ -241,6 +242,7 @@ footer {
 	color: black;
 	font-weight: 100;
 	padding: 4rem 0 2rem;
+	padding: 1rem;
 	opacity: 0.3;
 }
 
