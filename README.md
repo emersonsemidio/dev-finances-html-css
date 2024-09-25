@@ -12,7 +12,8 @@ Este projeto é um sistema de gerenciamento de finanças pessoais que permite ao
 
 ## Funcionalidades
 
-- **Adicionar Transações**: Os usuários podem adicionar transações de entrada ou saída, incluindo descrição, valor e data. As transações podem ser tanto positivas (entrada de dinheiro) como negativas (saída de dinheiro)
+- **Adicionar Transações**: Os usuários podem adicionar transações de entrada ou saída, incluindo descrição, valor e data. As transações podem ser tanto positivas (entrada de dinheiro) como negativas (saída de dinheiro).
+Para identificar uma saída é necessário colocar o sinal - na frente do valor
 - **Visualização de Saldo**: O saldo total é atualizado automaticamente à medida que novas transações são adicionadas.
 
 ## Tecnologias Utilizadas
